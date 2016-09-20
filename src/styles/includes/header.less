@@ -1,0 +1,132 @@
+.navbar {
+    font-size: @font-size-large;
+    z-index: 1;
+
+    position: relative;
+    min-height: 70px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+
+    &.navbar-default {
+        background-color: @white;
+        border-color: transparent;
+
+        .navbar-collapse, .navbar-form, .navbar-toggle {
+            border-color: transparent;
+        }
+    }
+
+    .container { position: relative; }
+
+    .navbar-brand {
+        float: left;
+        font-size: 19px;
+        line-height: 20px;
+        height: 70px;
+        padding-bottom: @navbar-brand-padding-vertical;
+        padding-top: @navbar-brand-padding-vertical;
+        img { max-height: 100%; }
+    }
+
+    .navbar-form {
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+
+    .navbar-toggle {
+        z-index: 1;
+        margin-top: 18px;
+        margin-bottom: 18px;
+        color: #505050;
+
+        .icon-bar {
+            background-color: #505050;
+        }
+    }
+
+    .navbar-nav {
+        & > li > .divider {
+            display: inline-block;
+            line-height: @line-height-computed;
+            padding-bottom: @navbar-padding-vertical;
+            padding-top: @navbar-padding-vertical;
+            vertical-align: middle;
+        }
+
+        & > .active > a {
+            .active-url(@brand-info, 20%);
+        }
+        & > li:last-child {
+            margin-left: 0;
+        }
+
+        &.with-notification-item {
+            position: relative;
+            & > .navbar-nav-logout { margin-left: 45px; }
+        }
+    }
+
+    .navbar-collapse { z-index: 1; }
+
+    .navbar-nav > .active > a,
+    .navbar-nav > .active > a:hover,
+    .navbar-nav > .active > a:focus {
+        background: transparent;
+
+        &:beofre {
+            border-bottom: 3px solid #00aeef;
+            bottom: 0;
+            content: '';
+            height: 1px;
+            left: 50%;
+            margin-bottom: 20%;
+            margin-left: -0.5em;
+            position: absolute;
+            width: 1em;
+        }
+    }
+
+    .bootstrap-switch {
+        border-radius: 10px;
+    }
+    .bootstrap-switch .bootstrap-switch-handle-on,
+    .bootstrap-switch .bootstrap-switch-handle-off,
+    .bootstrap-switch .bootstrap-switch-label {
+        padding: 6px 11px;
+    }
+}
+
+@media (max-width: @dev-xs) {
+    .navbar {
+        .navbar-nav {
+            & > .active {
+                & > a:before { left: 25px; margin-bottom: 4px; }
+            }
+            & > li:last-child { margin-left: 0; }
+
+            &.with-notification-item {
+                & > .navbar-nav-logout { margin-left: 0; }
+            }
+        }
+    }
+}
+@media (min-width: @dev-xs) {
+    .navbar {
+        .navbar-collapse { margin-bottom: 0!important; }
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .navbar > .container .navbar-brand,
+    .appointment-detail .details .navbar > dl .navbar-brand,
+    .navbar > .container-fluid .navbar-brand,
+    .navbar > footer .navbar-brand,
+    .navbar-notification-wrapper .navbar-notification-list-wrapper .navbar > .navbar-notification-list .navbar-brand {
+            margin-left: -15px;
+    }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Online Booking and Advertising Platform | Snaapy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Snaapy is a one-stop for all your business advertising and online booking related requirements. Go ahead, register now and take your business to great heights. Visit now!">
+
+    <meta name="author" content="">
+    <meta name="referrer" content="always">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="./vendor/bootstrap/dist/css/bootstrap.min.css"
+        type="text/css" rel="stylesheet" />
+    <link href="./vendor/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css"
+        type="text/css" rel="stylesheet" />
+    <link href="./styles/app.min.css" type="text/css" rel="stylesheet" />
+</head>
+<body data-lang="en">
+    <div id="app">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#navbar-collapse"
+                            aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="/">
+                        <img class="img-responsive" src="./images/logo.png" alt="Snaapy">
+                    </a>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <form class="navbar-form navbar-right" method="post">
+                        <div class="form-group">
+                            <input type="checkbox"
+                               name="lang-switcher"
+                               data-on-color="info"
+                               data-off-color="info"
+                               data-active-lang="en"
+                               data-next-path="/">
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right with-notification-item">
+                        <li class="active"><a href="/business/search/">Businesses</a></li>
+                        <li><span class="divider hidden-xs"></span></li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#signup-modal">Sign Up</a>
+                        </li>
+                        <li><span class="divider hidden-xs"></span></li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br />
+        <br />
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#navbar-collapse"
+                            aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/business/">
+                        <img src="./images/logo.png" alt="Snaapy">
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <form class="navbar-form navbar-right" method="post">
+                        <div class="form-group">
+                            <input type="checkbox"
+                               name="lang-switcher"
+                               data-on-color="info"
+                               data-off-color="info"
+                               data-active-lang="en"
+                               data-next-path="/business/">
+                        </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right with-notification-item">
+                        <li class="active"><a href="/business/">Dashboard</a></li>
+                        <li><a href="/business/search/">Businesses</a></li>
+                        <li class="navbar-nav-logout"><a href="/accounts/logout/">Logout</a></li>
+                    </ul>
+                </div>
+
+                <div class="navbar-notification-wrapper">
+                    <a href="#"
+                        class="navbar-notification-link"
+                        id="navbar-notification-link"
+                        data-csrf="WH5k2Bw1OYKDHQ8p5Y56x4sgVR83OgeK">
+                        <i class="snaapy-icon-notification"></i>
+                        <span class="navbar-notification-count" id="navbar-notification-count">
+                            0
+                        </span>
+                    </a>
+
+                    <div class="navbar-notification-container" id="navbar-notification-container">
+                        <div class="navbar-notification-container__header">
+                            <a href="#hide-navbar"
+                                id="navbar-notification-close-link"
+                                class="navbar-notification-container__header-link">
+                                <i class="snaapy-icon-close"></i>
+                            </a>
+                        </div>
+
+                        <div class="navbar-notification-list-wrapper baron baron__clipper" id="navbar-notification-list-wrapper">
+                            <span id="notification-spinner"></span>
+                            <div class="baron__scroller">
+                                <ul class="navbar-notification-list" id="navbar-notification-list">
+
+                                </ul>
+                            </div>
+
+                            <div class="baron__track">
+                                <div class="baron__free">
+                                    <div class="baron__bar"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="navbar-notification-container__footer">
+                            <a href="#read-all-notifications" class="navbar-notification-container__footer-link" data-ack-all-url="/notifications/mark_as_read/all/">
+                                read all
+                            </a>
+                            <span class="navbar-notification-container__footer-count">
+                                0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid no-padding">
+            <div id="app-content"></div>
+
+            <footer class="container-fluid clearfix">
+                <div class="container">
+                    <div class="footer-content row hidden-xs">
+                        <div class="footer-content-left col-sm-3">&#169; 2016, Snaapy</div>
+                        <div class="footer-content-right  col-sm-9">
+                            <ul class="footer-menu list-inline text-uppercase pull-right">
+                                <li><a href="/the-waiting-room/">The Waiting Room</a></li>
+                                <li><span class="divider"></span></li>
+                                <li><a href="/terms-and-conditions/">Terms and conditions</a></li>
+                                <li><span class="divider"></span></li>
+                                <li><a href="/contact-us/">Contact us</a></li>
+                                <li><span class="divider"></span></li>
+                                <li><a href="/about-snaapy/">About snaapy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer-content-mobile row visible-xs text-center">
+                        <p class="footer-menu-mobile lead">
+                            <a href="/en/pages/the-waiting-room/">The Waiting Room</a>
+                            <span class="divider"></span>
+                            <a href="/en/pages/terms-and-conditions/">Terms and conditions</a>
+                            <span class="divider"></span>
+                            <a href="/contact-us/">Contact us</a>
+                            <span class="divider"></span>
+                            <a href="/en/pages/about-snaapy/">About snaapy</a>
+                        </p>
+                        <p>&#169; 2016, Snaapy</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="./vendor/jquery/dist/jquery.min.js"
+        type="text/javascript" ></script>
+    <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"
+        type="text/javascript" ></script>
+    <script src="./vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js"
+        type="text/javascript" ></script>
+    <script src="./scripts/app.min.js"
+        type="text/javascript" ></script>
+</body>
+</html>

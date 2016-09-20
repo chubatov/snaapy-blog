@@ -1,0 +1,93 @@
+.undecorated-link () {
+    text-decoration: none;
+    &:hover, &:focus { text-decoration: none; }
+}
+
+.white-link {
+    color: @white;
+    &:visited { color: @white; }
+    &.disabled, &:hover, &:focus { color: @gray-lighter; }
+    &.disabled {
+        .undecorated-link();
+        cursor: not-allowed;
+    }
+}
+
+.gray-link {
+    color: @text-color;
+    &:visited { color: @text-color; }
+    &.disabled, &:hover, &:focus { color: @text-muted; }
+    &.disabled {
+        .undecorated-link();
+        cursor: not-allowed;
+    }
+}
+
+.gray-light-link {
+    color: @text-muted;
+    &:visited { color: @text-muted; }
+    &.disabled, &:hover, &:focus { color: @white; }
+    &.disabled {
+        .undecorated-link();
+        cursor: not-allowed;
+    }
+}
+
+.danger-link {
+    &, &:visited, &:hover, &:focus {
+        color: @brand-danger;
+        cursor: pointer;
+    }
+
+    &.disabled {
+        .undecorated-link();
+        cursor: not-allowed;
+        opacity: @active-item-opacity;
+    }
+}
+
+.link-with-img {
+    .undecorated-link();
+
+    &:hover img, &:hover .no-img,
+    &:focus img, &:focus .no-img {
+        opacity: @active-img-opacity;
+    }
+}
+
+/* .no-logo(@no-logo-block-size) {
+    @extend .glyphicon;
+    @extend .glyphicon-picture;
+    @extend .text-center;
+    background-color: @gray-lighter;
+    color: @gray-ultra-light;
+    font-size: ceil((@no-logo-block-size / 3));
+    left: initial;
+    height: @no-logo-block-size;
+    top: initial;
+    line-height: @no-logo-block-size;
+    width: @no-logo-block-size;
+} */
+
+.small-underline(@border-color, @margin-bottom: 1em) {
+    @underline-width: 1em;
+    position: relative;
+
+    &::before {
+        border-bottom: 3px solid @border-color;
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: 50%;
+        margin-bottom: @margin-bottom;
+        margin-left: -(@underline-width / 2);
+        position: absolute;
+        width: @underline-width;
+    }
+}
+
+.active-url(@border-color, @margin-bottom) {
+    &, &:hover, &:focus {
+        .small-underline(@border-color, @margin-bottom);
+    }
+}

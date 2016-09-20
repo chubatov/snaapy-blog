@@ -1,0 +1,35 @@
+footer {
+    background-color: @footer-bg;
+    bottom: 0;
+    color: @text-muted;
+    left: 0;
+    max-height: @footer-max-height;
+    min-height: @footer-min-height;
+    overflow: hidden;
+    padding: 0 @footer-padding-horizontal;
+    position: absolute;
+    right: 0;
+
+    a { .gray-light-link(); }
+
+    .footer-content,
+    .footer-content-mobile {
+        min-height: @footer-min-height;
+        padding: @footer-padding-vertical 0;
+    }
+
+    .footer-content { overflow: hidden; }
+
+    ul.footer-menu {
+        display: block;
+        font-size: @font-size-large;
+        margin: initial;
+        padding: initial;
+
+        li {
+            display: block;
+            float: left;
+            position: relative;
+        }
+    }
+}

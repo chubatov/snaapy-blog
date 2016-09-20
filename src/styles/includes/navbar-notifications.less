@@ -1,0 +1,263 @@
+.navbar-notification-wrapper {
+    position: absolute !important;
+    right: 230px;
+    top: 20px;
+
+    .navbar-notification-link {
+        @item-size: 22px;
+        position: relative;
+        font-size: @item-size;
+        &:before { display: none; }
+        &.active { color: @notification-default-text-color; }
+
+        .snaapy-icon-notification {
+            margin-top: -6px;
+            display: inline-block;
+        }
+
+        .navbar-notification-count {
+            position: absolute;
+            bottom: -3px;
+            right: -13px;
+            font-size: 12px;
+            font-weight: 700;
+            color: @notification-default-text-color;
+            background-color: @brand-warning;
+            min-width: @item-size;
+            height: @item-size;
+            border-radius: @item-size / 2;
+            line-height: 24px;
+            text-align: center;
+            z-index: 2;
+        }
+    }
+
+
+    .navbar-notification-container {
+        display: none;
+        overflow: hidden;
+        width: 340px;
+        background-color: @notification-container-bg;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+        position: absolute;
+        right: -70px; // padding-size
+        top: 50px;
+        z-index: 1;
+
+        &.active { display: block; }
+
+        .navbar-notification-container__header {
+            display: none;
+            padding: 6px 15px;
+            text-align: right;
+            background-color: @notification-header-footer-bg;
+            line-height: 1;
+
+            .navbar-notification-container__header-link {
+                overflow: hidden;
+                display: inline-block;
+                font-family: @font-family-sans-serif;
+                font-weight: 700;
+                height: 20px;
+                font-size: 20px;
+                line-height: 1.0;
+                vertical-align: baseline;
+                color: @notification-container-header-link-color;
+                &:hover, &:active, &:focus { color: @notification-container-header-link-hover-color; }
+            }
+        }
+
+        .navbar-notification-container__footer {
+            padding: 9px 0;
+            text-align: center;
+            background-color: @notification-header-footer-bg;
+
+            .navbar-notification-container__footer-link {
+                color: @notification-default-text-color;
+                font-family: @font-family-sans-serif;
+                font-weight: 700;
+                line-height: 1.0;
+                vertical-align: baseline;
+            }
+
+            .navbar-notification-container__footer-count {
+                display: inline-block;
+                height: 30px;
+                min-width: 30px;
+                margin-left: 6px;
+                padding: 3px 6px;
+                line-height: 30px;
+                font-weight: 700;
+                border-radius: 14px;
+                vertical-align: baseline;
+                background-color: @brand-warning;
+                text-align: center;
+                z-index: 2;
+            }
+        }
+    }
+
+
+    .navbar-notification-list-wrapper {
+        // max-height: 510px;
+        // height: 510px; // baron plugin require height property
+        position: relative;
+
+        .navbar-notification-list {
+            @extend .container-fluid;
+            @include clearfix;
+
+            list-style-type: none;
+
+            .navbar-notification-list-item {
+                @extend .row;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(80, 80, 80, 0.1); // @notification-default-text-color
+                &:last-of-type { border-bottom: none; }
+
+                .navbar-notification-list-item__status {
+                    .snaapy-icon-event-succsess { color: @notification-icon-event-succsess; }
+                    .snaapy-icon-replaced-date { color: @notification-icon-event-replaced; }
+                    .snaapy-icon-remove { color: @notification-icon-event-remove; }
+                }
+
+                .navbar-notification-list-item__content {
+                    font-size: 13px;
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+
+                    .notification-title {
+                        margin-bottom: 10px;
+                        font-family: @font-family-arial;
+
+                        .notification-start-time {
+                            color: @notification-start-time-color;
+                            font-weight: 700;
+                        }
+                    }
+
+                    .navbar-notification-list-item__info {
+                        overflow: hidden;
+
+                        .notification-time-of-receipt {
+                            float: left;
+                            font-size: 12px;
+                            line-height: 20px;
+                            font-family: @font-family-arial;
+                        }
+                        .notification-get-details {
+                            float: right;
+
+                            .notification-get-details__link {
+                                font-size: 18px;
+                                font-weight: 700;
+                                color: @notification-default-text-color;
+                            }
+                        }
+                    }
+                }
+
+                .navbar-notification-list-item__close {
+                    text-align: right;
+
+                    .notification-link-close {
+                        font-size: 17px;
+                        text-decoration: none;
+                        color: @notification-close-link-color;
+                        &:hover, &:active, &:focus { color: @notification-close-link-hover-color; }
+                    }
+                }
+            }
+        }
+    }
+
+    // ----------------------------------------
+    // Spinner
+    @keyframes fa-spin {
+        0%      { transform: rotate(0deg); }
+        100%    { transform: rotate(359deg); }
+    }
+
+    #notification-spinner {
+        @extend .glyphicon;
+        @extend .glyphicon-refresh;
+        font-size: 20px;
+        animation: fa-spin 1.0s infinite linear;
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        will-change: transform;
+        transform: translate(-10px, -10px);
+        z-index: 6;
+        &.visible { display: block; }
+    }
+}
+
+
+
+@media (max-width: @dev-xs) {
+    .navbar-notification-wrapper {
+        right: 82px;
+        top: 25px;
+        .navbar-notification-link {
+            position: relative;
+            font-size: 20px;
+            .snaapy-icon-notification { margin-top: 0; }
+        }
+
+        .navbar-notification-container {
+            border-radius: 0;
+            position: fixed;
+            left: 0;
+            right: auto;
+            width: 96%;
+            top: 0;
+            height: 100%;
+            display: block;
+            opacity: 0;
+            transform: translateX(-100%);
+            will-change: transform, opacity;
+            transition: all 0.3s ease-in-out;
+
+             &.active {
+                display: block;
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            .navbar-notification-container__header { display: block; }
+
+            .navbar-notification-container__footer {
+                padding: 3px 0;
+                .navbar-notification-container__footer-count {
+                    height: 28px;
+                    min-width: 28px;
+                    margin-left: 6px;
+                    padding: 2px 4px;
+                    line-height: 28px;
+                }
+            }
+        }
+
+
+        .navbar-notification-list-wrapper {
+            .navbar-notification-list {
+                .navbar-notification-list-item {
+                    padding: 10px 0;
+                    &:last-of-type { border-bottom: 1px solid rgba(80, 80, 80, 0.1); }
+                    .navbar-notification-list-item__content {
+                        font-size: 12px;
+                        .navbar-notification-list-item__info {
+                            .notification-time-of-receipt { line-height: 18px; }
+                            .notification-get-details {
+                                .notification-get-details__link { font-size: 16px; }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
